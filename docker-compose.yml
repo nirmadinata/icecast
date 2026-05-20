@@ -1,0 +1,18 @@
+services:
+  icecast:
+    image: moul/icecast:latest
+    container_name: icecast
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:8000:8000"
+
+    volumes:
+      - ./icecast/icecast.xml:/etc/icecast2/icecast.xml:ro
+
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8000/status-json.xsl"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s

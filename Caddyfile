@@ -1,0 +1,16 @@
+:80 {
+    handle /admin* {
+        respond "Forbidden" 403
+    }
+
+    reverse_proxy icecast:8000 {
+        transport http {
+            read_buffer 8192
+        }
+    }
+
+    log {
+        output stdout
+        format console
+    }
+}
