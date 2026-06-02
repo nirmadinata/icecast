@@ -13,7 +13,7 @@ const config = defineConfig({
     devtools(),
     nitro({
       preset: "cloudflare-module",
-      compatibilityDate: "latest",
+      compatibilityDate: "2025-05-30",
       cloudflare: {
         deployConfig: true,
         nodeCompat: true,
