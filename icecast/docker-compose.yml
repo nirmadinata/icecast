@@ -8,7 +8,7 @@ services:
       - "127.0.0.1:8000:8000"
 
     volumes:
-      - ./icecast/icecast.xml:/etc/icecast2/icecast.xml:ro
+      - ./icecast.xml:/etc/icecast2/icecast.xml:ro
 
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:8000/status-json.xsl"]
