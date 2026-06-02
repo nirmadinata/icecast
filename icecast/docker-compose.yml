@@ -11,7 +11,11 @@ services:
       - ./icecast.xml:/etc/icecast2/icecast.xml:ro
 
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:8000/status-json.xsl"]
+      test:
+        [
+          "CMD-SHELL",
+          "bash -lc 'exec 3<>/dev/tcp/127.0.0.1/8000 && printf \"GET /status-json.xsl HTTP/1.0\\r\\nHost: localhost\\r\\n\\r\\n\" >&3 && grep -q \"200 OK\" <&3'",
+        ]
       interval: 30s
       timeout: 10s
       retries: 5
