@@ -1,6 +1,10 @@
 
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -13,5 +17,10 @@ body,
 
 body {
   margin: 0;
+  background:
+    radial-gradient(circle at top, rgb(244 114 182 / 0.18), transparent 30%),
+    radial-gradient(circle at bottom left, rgb(251 191 36 / 0.14), transparent 24%),
+    #120f19;
+  color: #f7efe2;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
-
