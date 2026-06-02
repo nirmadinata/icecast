@@ -1,6 +1,6 @@
 services:
   icecast:
-    image: moul/icecast:latest
+    image: docker.io/moul/icecast:latest
     container_name: icecast
     restart: unless-stopped
 
